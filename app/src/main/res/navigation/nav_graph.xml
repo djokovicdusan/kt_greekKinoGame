@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/drawListFragment">
+
+    <fragment
+        android:id="@+id/drawListFragment"
+        android:name="com.example.kt_greekkinogame.ui.DrawListFragment"
+        android:label="Draw List"
+        tools:layout="@layout/fragment_draw_list" />
+
+    <fragment
+        android:id="@+id/drawAnimationFragment"
+        android:name="com.example.kt_greekkinogame.ui.DrawAnimationFragment"
+        android:label="Draw Animation"
+        tools:layout="@layout/fragment_draw_animation" />
+
+    <fragment
+        android:id="@+id/drawResultsFragment"
+        android:name="com.example.kt_greekkinogame.ui.DrawResultsFragment"
+        android:label="Draw Results"
+        tools:layout="@layout/fragment_draw_results" />
+</navigation>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_draw_list"
+        android:title="Draw List" />
+    <item
+        android:id="@+id/navigation_draw_animation"
+        android:title="Draw Animation" />
+    <item
+        android:id="@+id/navigation_draw_results"
+        android:title="Results" />
+</menu>
