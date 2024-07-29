@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.DrawDetailFragment">
 
-</LinearLayout>
+    <data>
+        <variable
+            name="draw"
+            type="com.example.kt_greekkinogame.model.Draw" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#1E1E1E">
+
+        <!-- Draw Details -->
+        <TextView
+            android:id="@+id/drawDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"/>
+
+        <!-- Prize Categories Table with Horizontal Scroll -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fillViewport="true">
+            <TableLayout
+                android:id="@+id/prizeCategoriesTable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:background="#2E2B52"
+                android:showDividers="middle"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1dp">
+            </TableLayout>
+        </HorizontalScrollView>
+
+        <!-- Ball Selection Grid -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your numbers"
+            android:textSize="18sp"
+            android:textColor="#FFA500"
+            android:layout_marginTop="16dp" />
+
+        <GridLayout
+            android:id="@+id/ballSelectionGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="10"
+            android:layout_marginTop="8dp">
+        </GridLayout>
+
+        <!-- Selected Numbers Display -->
+        <TextView
+            android:id="@+id/selectedNumbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selected Numbers: "
+            android:textColor="#FFA500"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:padding="8dp" />
+
+        <!-- Remaining Time Display -->
+        <TextView
+            android:id="@+id/remainingTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="#FFA500"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="#2E2B52"
+            android:padding="8dp" />
+
+    </LinearLayout>
+</layout>

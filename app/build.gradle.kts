@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.androidxNavigationSafeArgs) // Add Safe Args plugin alias
 }
 
 android {
@@ -32,8 +33,8 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding= true
     }
-
 }
 
 dependencies {
@@ -58,7 +59,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.logging.interceptor)
     implementation(libs.androidx.swiperefreshlayout)
-
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

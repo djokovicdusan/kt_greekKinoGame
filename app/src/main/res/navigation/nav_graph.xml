@@ -8,7 +8,25 @@
         android:id="@+id/drawListFragment"
         android:name="com.example.kt_greekkinogame.ui.DrawListFragment"
         android:label="Draw List"
-        tools:layout="@layout/fragment_draw_list" />
+        tools:layout="@layout/fragment_draw_list">
+        <action
+            android:id="@+id/action_drawListFragment_to_drawDetailFragment"
+            app:destination="@id/drawDetailFragment">
+            <argument
+                android:name="draw"
+                app:argType="com.example.kt_greekkinogame.model.Draw" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/drawDetailFragment"
+        android:name="com.example.kt_greekkinogame.ui.DrawDetailFragment"
+        android:label="Draw Detail"
+        tools:layout="@layout/fragment_draw_detail">
+        <argument
+            android:name="draw"
+            app:argType="com.example.kt_greekkinogame.model.Draw" />
+    </fragment>
 
     <fragment
         android:id="@+id/drawAnimationFragment"

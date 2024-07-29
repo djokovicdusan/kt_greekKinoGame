@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.kt_greekkinogame.ui.DrawAdapter
+import com.example.kt_greekkinogame.R
 import com.example.kt_greekkinogame.databinding.FragmentDrawListBinding
-import com.example.kt_greekkinogame.repository.DrawRepository
+import com.example.kt_greekkinogame.model.Draw
 import com.example.kt_greekkinogame.network.NetworkModule
+import com.example.kt_greekkinogame.repository.DrawRepository
 import com.example.kt_greekkinogame.viewmodel.MainViewModel
 import com.example.kt_greekkinogame.viewmodel.MainViewModelFactory
 
-class DrawListFragment : Fragment() {
+class DrawListFragment : Fragment(), DrawAdapter.OnItemClickListener {
 
     private val repository by lazy { DrawRepository(NetworkModule.apiService) }
     private val viewModel: MainViewModel by viewModels { MainViewModelFactory(repository) }
@@ -36,7 +36,7 @@ class DrawListFragment : Fragment() {
 
         Log.d("DrawListFragment", "onViewCreated called")
 
-        val adapter = DrawAdapter()
+        val adapter = DrawAdapter(this)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
@@ -57,5 +57,17 @@ class DrawListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(draw: Draw) {
+        val fragment = DrawDetailFragment().apply {
+            arguments = Bundle().apply {
+                putSerializable("draw", draw)
+            }
+        }
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment_activity_main, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

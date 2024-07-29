@@ -2,11 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_draw_list"
-        android:title="Draw List" />
+        android:title="Draw List"
+        android:icon="@drawable/ic_draw_list" />
     <item
         android:id="@+id/navigation_draw_animation"
-        android:title="Draw Animation" />
+        android:title="Draw Animation"
+        android:icon="@drawable/ic_draw_animation" />
     <item
         android:id="@+id/navigation_draw_results"
-        android:title="Results" />
+        android:title="Results"
+        android:icon="@drawable/ic_draw_results" />
 </menu>

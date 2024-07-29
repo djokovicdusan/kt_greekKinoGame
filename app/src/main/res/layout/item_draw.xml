@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="@drawable/item_background"
+    android:background="@drawable/item_background_night"
     android:layout_margin="8dp"
     android:elevation="4dp">
 
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Draw Time"
         android:textSize="16sp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/darker_gray"
         android:paddingBottom="4dp" />
 
     <RelativeLayout

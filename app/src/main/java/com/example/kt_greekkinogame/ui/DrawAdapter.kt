@@ -3,6 +3,7 @@ package com.example.kt_greekkinogame.ui
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,7 +13,7 @@ import com.example.kt_greekkinogame.model.Draw
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DrawAdapter : ListAdapter<Draw, DrawAdapter.DrawViewHolder>(DrawDiffCallback()) {
+class DrawAdapter(private val listener: OnItemClickListener) : ListAdapter<Draw, DrawAdapter.DrawViewHolder>(DrawDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DrawViewHolder {
         val binding = ItemDrawBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,9 +28,13 @@ class DrawAdapter : ListAdapter<Draw, DrawAdapter.DrawViewHolder>(DrawDiffCallba
         super.submitList(list)
     }
 
-    class DrawViewHolder(private val binding: ItemDrawBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class DrawViewHolder(private val binding: ItemDrawBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         private var countDownTimer: CountDownTimer? = null
+
+        init {
+            binding.root.setOnClickListener(this)
+        }
 
         fun bind(draw: Draw) {
             Log.d("DrawAdapter", "Binding draw: $draw")
@@ -66,6 +71,17 @@ class DrawAdapter : ListAdapter<Draw, DrawAdapter.DrawViewHolder>(DrawDiffCallba
                 binding.timer.setTextColor(binding.root.context.getColor(android.R.color.holo_green_dark))
             }
         }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(getItem(position))
+            }
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(draw: Draw)
     }
 }
 

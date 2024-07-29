@@ -1,28 +1,22 @@
 package com.example.kt_greekkinogame.ui
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.kt_greekkinogame.R
 import com.example.kt_greekkinogame.databinding.ActivityMainBinding
-import com.example.kt_greekkinogame.repository.DrawRepository
-import com.example.kt_greekkinogame.network.NetworkModule
-import com.example.kt_greekkinogame.viewmodel.MainViewModel
-import com.example.kt_greekkinogame.viewmodel.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val repository by lazy { DrawRepository(NetworkModule.apiService) }
-    private val viewModel: MainViewModel by viewModels { MainViewModelFactory(repository) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         binding.navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
