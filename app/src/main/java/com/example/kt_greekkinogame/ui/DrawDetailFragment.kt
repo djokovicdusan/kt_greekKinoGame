@@ -91,10 +91,10 @@ class DrawDetailFragment : Fragment() {
             val textView = TextView(context).apply {
                 text = data
                 setTextColor(resources.getColor(android.R.color.holo_orange_light))
-                setTextSize(14f) // Smaller text size
+                setTextSize(14f)
                 setPadding(8, 8, 8, 8)
                 textAlignment = TextView.TEXT_ALIGNMENT_CENTER
-                width = 150 // Set fixed width for each cell
+                width = 150
                 setBackgroundResource(R.drawable.table_cell_border)
             }
             dataRow.addView(textView)
