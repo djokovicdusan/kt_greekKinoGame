@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="ball_size">48dp</dimen>
+    <dimen name="ball_margin">4dp</dimen>
 </resources>

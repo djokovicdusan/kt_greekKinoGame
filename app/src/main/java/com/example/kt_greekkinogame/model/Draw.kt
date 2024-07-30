@@ -26,9 +26,9 @@ data class AddOn(
 
 data class PrizeCategory(
     val id: Long,
-    val divident: Long,
+    val divident: Double,
     val winners: Long,
-    val distributed: Long,
+    val distributed: Double,
     val jackpot: Long,
     val fixed: Double,
     val categoryType: Long,
